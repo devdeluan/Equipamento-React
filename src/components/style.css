@@ -1,4 +1,6 @@
 
+
+
 .tabelaEqpm {
     margin-top: 5%;
     margin-left: 5%;
@@ -10,6 +12,7 @@
     text-align: center;
   }
   
+
   .tabelaEqpm th {
     border-radius: 25px 25px 25px 0px;
   }
@@ -21,22 +24,27 @@
     font-weight: bold;
   }
   
-  .tabelaEqpm th,
   .tabelaEqpm td {
     padding: 1% 2.5%;
-    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .tabelaEqpm th {
+    padding: 1% 2.5%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   .linhaImpar {
+    /* display: flex; */
+    width: 375%;
     background-color: #dceee8;
   }
-  
-  tr {
-    display: flex;
-    border-radius: 10px;
-    justify-content: space-evenly;
-    align-items: start;
+
+  .linhaPar {
+    /* display: flex; */
+    width: 375%;
   }

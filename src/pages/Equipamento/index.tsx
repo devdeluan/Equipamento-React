@@ -73,7 +73,12 @@ function Equipamento() {
                 })
               }
             </select>
-            <input className="buscarInput" type="text" placeholder="Buscar por ID ..." />
+            
+            <input className="buscarInput"
+             type="search" 
+             placeholder="Buscar ..." 
+             />
+
             <div className="menu2Bbtn">
               <a
                 className="btnNovoEqpm"
