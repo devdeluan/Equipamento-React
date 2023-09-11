@@ -9,30 +9,24 @@ export default function CardEquipamento(props:any){
             return props.id
         }
     }
+    
 
     
     return(
         <>
                     <tbody>
-                        <tr className="linhaImpar">
-                            <td>{props.id}</td>
-                            <td>{props.modelo}</td>
-                            <td>{props.fabricante}</td>
-                            <td>{props.data}</td>
-                            <td>{props.consumo}(kWh)</td>
-                            <td>R$ {props.valor}</td>
-                            
-
-                        </tr>
-
-                        <tr className="linhaPar">
-                            <td>{props.id}</td>
-                            <td>{props.modelo}</td>
-                            <td>{props.fabricante}</td>
-                            <td>{props.data}</td>
-                            <td>{props.consumo}(kWh)</td>
-                            <td>R$ {props.valor}</td>
-
+                        <tr className="linhaTabela">
+                            <td className='id'>{props.id}</td>
+                            <td className='modelo'>{props.modelo}</td>
+                            <td className='fabricante'>{props.fabricante}</td>
+                            <td className='data'>{props.data}</td>
+                            <td className='consumo'>{props.consumo}(kWh)</td>
+                            <td className='valor'>R$ {props.valor}</td>
+                            <input
+                                type="checkbox"
+                                // checked={selectedRows.includes(equip.id)}
+                                // onChange={() => toggleRow   Selection(equip.id)}   
+                                                />
                         </tr>
                     </tbody>
         </>

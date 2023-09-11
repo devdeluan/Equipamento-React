@@ -46,7 +46,7 @@ main {
 .painelEqpm {
   width: 95%;
   height: 90%;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 20px;
 }
 
@@ -140,9 +140,6 @@ button {
   font-weight: bold;
 }
 
-.linhaImpar {
-  background-color: #dceee8;
-}
 
 tr {
   display: flex;
@@ -156,7 +153,6 @@ tr {
    flex-direction: column;
    justify-content: space-evenly;
 }
-
 
 select {
   margin-left: 20px;

@@ -7,10 +7,34 @@ import './style.css'
 export default Equipamento;    
 
 function Equipamento() {
+  const [selectedRows, setSelectedRows] = useState<string[]>([]);
+  const [equip, setEquip] = useState<any[]>([])
 
-  const [equip, setEquip] = useState<any[]>([
 
-  ])
+
+    // Função para excluir as linhas selecionadas
+    function excluirLinhasSelecionadas() {
+  
+      // Após a exclusão bem-sucedida, atualize o estado listaBuscaFiltrado
+      const equipamentosAtualizados = listaBuscaFiltrado.filter(
+        (equip: any) => !selectedRows.includes(equip.id)
+      );
+  
+      setlistaBuscaFiltrado(equipamentosAtualizados);
+      setSelectedRows([]); // Limpa a seleção após a exclusão
+    }
+  
+
+  // Função para alternar a seleção de uma linha com base no ID
+  function toggleRowSelection(id: string) {
+    if (selectedRows.includes(id)) {
+      setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
+    } else {
+      setSelectedRows([...selectedRows, id]);
+    }
+  }
+
+
 
   //state filtros com os filtros definidos
   const [filtros, setFiltros] = useState<string[]>(
@@ -38,33 +62,37 @@ function Equipamento() {
 
   function buscarPor(event: any) {
     event.preventDefault();
+    
+    let equipFiltrados = [];
 
-    const equipFiltrado = equip.filter((eq: any) => eq.id.includes(filtroDigitado.toLocaleUpperCase()))
-    if (equipFiltrado.length === 0) {
-      alert("Nenhum Id encontrado!!")
+    if (select == 'ID') {
+        equipFiltrados = equip.filter((eq: any) => eq.id.toString().includes(filtroDigitado.toLocaleUpperCase()))
+    } 
+    else if (select == 'MODELO') {
+      equipFiltrados = equip.filter((eq: any) => eq.modelo.includes(filtroDigitado.toLocaleUpperCase()))
+    } 
+    else if (select == 'FABRICANTE') {
+      equipFiltrados = equip.filter((eq: any) => eq.fabricante.includes(filtroDigitado.toLocaleUpperCase()))
+    } 
+    else if (select == 'DATA') {
+      equipFiltrados = equip.filter((eq: any) => eq.data.includes(filtroDigitado.toLocaleUpperCase()))
+    } 
+    else if (select == 'CONSUMO') {
+      equipFiltrados = equip.filter((eq: any) => eq.consumo.includes(filtroDigitado.toLocaleUpperCase()))
+    } 
+    else if (select == 'VALOR') {
+      equipFiltrados = equip.filter((eq: any) => eq.valor.includes(filtroDigitado.toLocaleUpperCase()))
     }
-    else if (equipFiltrado == equip.filter((eq: any) => eq.id.includes(filtroDigitado.toLocaleUpperCase()))) {
-      setlistaBuscaFiltrado(equipFiltrado)
+
+    if (equipFiltrados.length === 0) {
+      alert("Nenhum resultado encontrado!!")
     }
-    else if (equipFiltrado == equip.filter((eq: any) => eq.modelo.includes(filtroDigitado.toLocaleUpperCase()))) {
-      setlistaBuscaFiltrado(equipFiltrado)
-    }
-    else if (equipFiltrado == equip.filter((eq: any) => eq.fabricante.includes(filtroDigitado.toLocaleUpperCase()))) {
-      setlistaBuscaFiltrado(equipFiltrado)
-    }
-    else if (equipFiltrado == equip.filter((eq: any) => eq.data.includes(filtroDigitado.toLocaleUpperCase()))) {
-      setlistaBuscaFiltrado(equipFiltrado)
-    }
-    else if (equipFiltrado == equip.filter((eq: any) => eq.consumo.includes(filtroDigitado.toLocaleUpperCase()))) {
-      setlistaBuscaFiltrado(equipFiltrado)
-    }
-    else if (equipFiltrado == equip.filter((eq: any) => eq.valor.includes(filtroDigitado.toLocaleUpperCase()))) {
-      setlistaBuscaFiltrado(equipFiltrado)
-    }
+ 
     else {
-      setlistaBuscaFiltrado(equipFiltrado)
+      setlistaBuscaFiltrado(equipFiltrados)
     }
   }
+
 
   function retornoEquipGeral(event: any) {
     if (event.target.value === "") {
@@ -80,7 +108,36 @@ function Equipamento() {
     })
   }
 
+  function alternarCoresTabela() {
+    let linhas = document.getElementsByTagName("tr"); // Obtém todas as linhas da tabela
+  
+    for (let i = 0; i < linhas.length; i++) {
+      if (i % 2 === 0) { // Se o índice da linha for par
+        linhas[i].style.backgroundColor = "#dceee8 "; // Define a cor de fundo como branco
+      } else { // Se o índice da linha for ímpar
+        linhas[i].style.backgroundColor = "#01b574"; // Define a cor de fundo como verde
+      }
+  
+      // Verifica se a linha possui a classe "tabelaEquip"
+      if (linhas[i].classList.contains("tabelaEquip")) {
+        linhas[i].style.backgroundColor = "white"; // usa a cor desejada
+      }
+    }
+  }
+  
+  // Exemplo de uso:
+  alternarCoresTabela();
+  
+// Função para excluir um equipamento com base no ID
+function excluirEquipamento(id: string) {
 
+  // Após a exclusão bem-sucedida, atualize o estado listaBuscaFiltrado
+  const equipamentosAtualizados = listaBuscaFiltrado.filter(
+    (equip: any) => equip.id !== id
+  );
+
+  setlistaBuscaFiltrado(equipamentosAtualizados);
+}
 
   return (
     <>
@@ -121,7 +178,7 @@ function Equipamento() {
                 <button>Editar</button>
               </a>
               <a className="btnExcluir" href="">
-                <button>Excluir</button>
+              <button>Excluir</button>
               </a>
             </div>
             <table className="tabelaEqpm">
@@ -150,8 +207,13 @@ function Equipamento() {
                               data={equip.data}
                               consumo={equip.consumo}
                               valor={equip.valor}
+                              
+                              
 
                             />
+
+
+
                           </td>
             }) : listaBuscaFiltrado.map((equip: any, index: number) => {
                             return <td  key={index}>
