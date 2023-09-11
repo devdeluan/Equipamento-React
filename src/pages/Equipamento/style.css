@@ -134,7 +134,6 @@ button {
 }
 
 .tabelaEqpm thead tr {
-  /* background-color: #DCEEE8; */
   color: black;
   text-align: center;
   font-weight: bold;
@@ -142,6 +141,7 @@ button {
 
 
 tr {
+  width: 85vw;
   display: flex;
   border-radius: 10px;
   justify-content: space-evenly;

@@ -15,50 +15,33 @@
 
   .linhaTabela {
     /* display: flex; */
-    width: 370%;
+    width: 82vw;
     background-color: #dceee8;
   }
-  .linhaTabela2 {
-    /* display: flex; */
-    width: 370%;
-    background-color: white;
+
+
+   .id {
+    margin-left: -5%;
+    font-weight: bold;
+    }
+
+  .modelo {
+    margin-left: 4%;
+  }
+  
+  .fabricante {
+    margin-left: 5%;
+  }
+  
+  .data {
+    width: 10vw;
+    /* margin-right: -4%; */
   }
 
-  .id {
-    margin-left: -5%;
-    font-weight: bold;
-    }
-  .modelo {
-    margin-left: 3%;
-  }
-  .fabricante {
-    margin-left: 3%;
-  }
-  .data {
-    margin-left: 1%;
-  }
   .consumo {
-    margin-left: -2%;
+    margin-right: -3%;
   }
+  
   .valor {
-    margin-right: -2%;
-  }
-  .id2 {
-    margin-left: -5%;
-    font-weight: bold;
-    }
-  .modelo2 {
-    margin-left: 3%;
-  }
-  .fabricante2 {
-    margin-left: 3%;
-  }
-  .data2 {
-    margin-left: 1%;
-  }
-  .consumo2 {
-    margin-left: -2%;
-  }
-  .valor2 {
     margin-right: -2%;
   }

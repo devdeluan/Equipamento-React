@@ -22,11 +22,11 @@ export default function CardEquipamento(props:any){
                             <td className='data'>{props.data}</td>
                             <td className='consumo'>{props.consumo}(kWh)</td>
                             <td className='valor'>R$ {props.valor}</td>
-                            <input
+                            {/* <input
                                 type="checkbox"
                                 // checked={selectedRows.includes(equip.id)}
                                 // onChange={() => toggleRow   Selection(equip.id)}   
-                                                />
+                                                /> */}
                         </tr>
                     </tbody>
         </>

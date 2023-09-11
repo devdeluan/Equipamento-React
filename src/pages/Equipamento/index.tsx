@@ -4,35 +4,10 @@ import { useEffect, useState } from "react"
 import './style.css'
 
 
-export default Equipamento;    
+export default Equipamento;   
 
 function Equipamento() {
-  const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [equip, setEquip] = useState<any[]>([])
-
-
-
-    // Função para excluir as linhas selecionadas
-    function excluirLinhasSelecionadas() {
-  
-      // Após a exclusão bem-sucedida, atualize o estado listaBuscaFiltrado
-      const equipamentosAtualizados = listaBuscaFiltrado.filter(
-        (equip: any) => !selectedRows.includes(equip.id)
-      );
-  
-      setlistaBuscaFiltrado(equipamentosAtualizados);
-      setSelectedRows([]); // Limpa a seleção após a exclusão
-    }
-  
-
-  // Função para alternar a seleção de uma linha com base no ID
-  function toggleRowSelection(id: string) {
-    if (selectedRows.includes(id)) {
-      setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
-    } else {
-      setSelectedRows([...selectedRows, id]);
-    }
-  }
 
 
 
@@ -125,19 +100,8 @@ function Equipamento() {
     }
   }
   
-  // Exemplo de uso:
   alternarCoresTabela();
-  
-// Função para excluir um equipamento com base no ID
-function excluirEquipamento(id: string) {
 
-  // Após a exclusão bem-sucedida, atualize o estado listaBuscaFiltrado
-  const equipamentosAtualizados = listaBuscaFiltrado.filter(
-    (equip: any) => equip.id !== id
-  );
-
-  setlistaBuscaFiltrado(equipamentosAtualizados);
-}
 
   return (
     <>
