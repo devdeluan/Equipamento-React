@@ -45,3 +45,12 @@
   .valor {
     margin-right: -2%;
   }
+  .check {
+    margin-left: -3%;
+  }
+
+  input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
